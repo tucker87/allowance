@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import { useUserStore } from "../stores/user.ts";
+import { useMainStore } from "../stores/main.ts";
 
 defineProps<{ msg: string }>();
 
-const store = useUserStore();
+const store = useMainStore();
 </script>
 
 <template>
