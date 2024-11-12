@@ -1,0 +1,23 @@
+{
+  "name": "allowance-ui",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "ui:dev": "vite",
+    "ui:build": "vue-tsc -b && vite build",
+    "ui:preview": "vite preview"
+  },
+  "dependencies": {
+    "allowance-api-client": "file:../allowance-api/generated-sources/openapi",
+    "vue": "^3.5.12"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^5.1.4",
+    "pinia": "^2.2.6",
+    "tsx": "^4.19.2",
+    "typescript": "~5.6.2",
+    "vite": "^5.4.10",
+    "vue-tsc": "^2.1.8"
+  }
+}

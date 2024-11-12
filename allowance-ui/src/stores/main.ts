@@ -1,4 +1,7 @@
 import { defineStore } from "pinia";
+import { DefaultApi } from 'allowance-api-client'
+
+const api = new DefaultApi();
 
 export const useMainStore = defineStore("main", {
   state: () => ({
@@ -9,5 +12,8 @@ export const useMainStore = defineStore("main", {
     increment() {
       this.count++;
     },
+    async getUsers() {
+      this.users = (await api.usersGet()).data
+    }
   },
 });
