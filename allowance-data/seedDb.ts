@@ -1,4 +1,9 @@
+import 'dotenv/config';
+import { drizzle } from 'drizzle-orm/libsql';
+import { eq } from 'drizzle-orm';
+import { usersTable } from './db';
 
+const db = drizzle(process.env.DB_FILE_NAME!);
 
 async function main() {
     const user: typeof usersTable.$inferInsert = {
@@ -32,6 +37,18 @@ async function main() {
     const users2 = await db.select().from(usersTable);
     console.log(users2);
     console.log('User deleted!')
+
+    //Real setup starts here
+    await db.insert(usersTable).values(user);
+
+    const user3: typeof usersTable.$inferInsert = {
+        name: 'Amanda',
+        email: 'valiantrye@gmail.com',
+    };
+
+    await db.insert(usersTable).values(user3);
+
+    console.log('Seeded!')
 }
 
 main();

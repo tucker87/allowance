@@ -1,4 +1,4 @@
-import {db, usersTable} from '../db'
+import {db, usersTable} from 'allowance-data/src/db/index'
 
 async function routes (fastify, options) {
     fastify.get('/users', async (request, reply) => {
