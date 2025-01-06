@@ -1,0 +1,20 @@
+meta {
+  name: Get Token
+  type: http
+  seq: 4
+}
+
+post {
+  url: https://ticktick.com/oauth/token
+  body: formUrlEncoded
+  auth: none
+}
+
+body:form-urlencoded {
+  client_id: {{client_id}}
+  client_secret: {{client_secret}}
+  code: {{auth_code}}
+  grant_type: authorization_code
+  scope: {{scope}}
+  redirect_uri: {{redirect_uri}}
+}
